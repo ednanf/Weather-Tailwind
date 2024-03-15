@@ -10,6 +10,7 @@ import { WEATHER_KEY } from './support/KEY';
 
 // TODO: make C or F option and pass it along to the widgets
 // TODO: make API field component and remove my own key
+// TODO: make temperature in NextDayCard be '--' before loading
 
 function App() {
 	// Used to set coordinates *and* pass the city name - weather API is wrong sometimes
@@ -41,7 +42,12 @@ function App() {
 		name: '',
 	});
 
-	const [weatherForecast, setWeatherForecast] = useState([]);
+	const [weatherForecast, setWeatherForecast] = useState([
+		{ temp: 0, id: 0 },
+		{ temp: 0, id: 0 },
+		{ temp: 0, id: 0 },
+		{ temp: 0, id: 0 },
+	]);
 
 	// Triggers fetching when any state changes
 	useEffect(() => {
@@ -119,7 +125,9 @@ function App() {
 		});
 	}
 
-	console.log(weatherForecast);
+	if (weatherForecast.length !== 0) {
+		console.log(weatherForecast);
+	}
 
 	return (
 		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex items-center justify-center">
@@ -132,11 +140,11 @@ function App() {
 					location={coordinates.city}
 				/>
 				<DetailsWidget weatherData={currentWeatherData} />
-				<div className="flex space-x-2 justify-center">
-					<NextDayCard />
-					<NextDayCard />
-					<NextDayCard />
-					<NextDayCard />
+				<div className="flex space-x-3.5 justify-center">
+					<NextDayCard temperature={weatherForecast[0].temp.toFixed(0)} />
+					<NextDayCard temperature={weatherForecast[1].temp.toFixed(0)} />
+					<NextDayCard temperature={weatherForecast[2].temp.toFixed(0)} />
+					<NextDayCard temperature={weatherForecast[3].temp.toFixed(0)} />
 				</div>
 			</div>
 		</div>
