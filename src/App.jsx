@@ -41,6 +41,8 @@ function App() {
 		name: '',
 	});
 
+	const [weatherForecast, setWeatherForecast] = useState([]);
+
 	// Triggers fetching when any state changes
 	useEffect(() => {
 		async function fetchData() {
@@ -49,13 +51,14 @@ function App() {
 				return;
 			}
 
+			// Current weather call
 			try {
 				const response = await fetch(
 					`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${WEATHER_KEY}`
 				);
 
 				if (!response.ok) {
-					throw new Error('Error fetching data!');
+					throw new Error('Error fetching current weather data!');
 				}
 
 				const data = await response.json();
@@ -63,6 +66,42 @@ function App() {
 				setCurrentWeatherData({
 					...data,
 				});
+			} catch (error) {
+				console.error(error);
+			}
+
+			// Weather forecast call
+
+			try {
+				const response = await fetch(
+					`https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${WEATHER_KEY}`
+				);
+
+				if (!response.ok) {
+					throw new Error('Error fetching forecast data!');
+				}
+
+				const forecastData = await response.json();
+
+				// The array numbers are due to how the API returns results with 3h intervals
+				setWeatherForecast([
+					{
+						temp: forecastData.list[7].main.temp,
+						id: forecastData.list[7].weather[0].id,
+					},
+					{
+						temp: forecastData.list[15].main.temp,
+						id: forecastData.list[15].weather[0].id,
+					},
+					{
+						temp: forecastData.list[23].main.temp,
+						id: forecastData.list[23].weather[0].id,
+					},
+					{
+						temp: forecastData.list[31].main.temp,
+						id: forecastData.list[31].weather[0].id,
+					},
+				]);
 			} catch (error) {
 				console.error(error);
 			}
@@ -79,6 +118,8 @@ function App() {
 			city: searchData.city,
 		});
 	}
+
+	console.log(weatherForecast);
 
 	return (
 		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex items-center justify-center">
