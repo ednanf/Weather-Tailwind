@@ -17,7 +17,7 @@ function App() {
 		lon: null,
 	});
 
-	const [weatherData, setWeatherData] = useState({
+	const [currentWeatherData, setCurrentWeatherData] = useState({
 		weather: {
 			0: {
 				id: 0,
@@ -39,35 +39,35 @@ function App() {
 		name: '',
 	});
 
-	async function fetchData() {
-		// Avoid calling the API without data
-		if (!coordinates.lat || !coordinates.lon) {
-			return;
-		}
-
-		try {
-			const response = await fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${WEATHER_KEY}`
-			);
-
-			if (!response.ok) {
-				throw new Error('Error fetching data!');
-			}
-
-			const data = await response.json();
-
-			setWeatherData({
-				...data,
-			});
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
 	// Triggers fetching when any state changes
 	useEffect(() => {
+		async function fetchData() {
+			// Avoid calling the API without data
+			if (!coordinates.lat || !coordinates.lon) {
+				return;
+			}
+
+			try {
+				const response = await fetch(
+					`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${WEATHER_KEY}`
+				);
+
+				if (!response.ok) {
+					throw new Error('Error fetching data!');
+				}
+
+				const data = await response.json();
+
+				setCurrentWeatherData({
+					...data,
+				});
+			} catch (error) {
+				console.error(error);
+			}
+		}
+
 		fetchData();
-	});
+	}, [coordinates]);
 
 	// Receives latitude and longitude from the search query
 	function handleSearch(searchData) {
@@ -83,10 +83,7 @@ function App() {
 				<div className="w-[500]">
 					<SearchBar onSearchChange={handleSearch} />
 				</div>
-				<MainWidget
-					temperature={weatherData.main.temp}
-					city={weatherData.name}
-				/>
+				<MainWidget weatherData={currentWeatherData} />
 				<DetailsWidget />
 				<div className="flex space-x-2 justify-center">
 					<NextDayCard />
