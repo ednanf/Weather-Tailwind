@@ -6,7 +6,9 @@ function MainWidget({ weatherData, location }) {
 			<div className="flex items-center justify-center mr-7">
 				<WiDaySunny className="text-[100px] font-black" />
 				<p className="text-[3rem] font-medium">
-					{!weatherData.main.temp ? '--' : weatherData.main.temp}
+					{!weatherData.main.temp
+						? '--'
+						: `${weatherData.main.temp.toFixed(0)}º`}
 				</p>
 			</div>
 			<p className="font-roboto font-thin text-4xl text-center">
@@ -14,10 +16,16 @@ function MainWidget({ weatherData, location }) {
 			</p>
 			<div className="flex space-x-5 mt-3 justify-center font-thin">
 				<p>
-					Min: {!weatherData.main.temp_min ? '--' : weatherData.main.temp_min}
+					Low:{' '}
+					{!weatherData.main.temp_min
+						? '--'
+						: `${weatherData.main.temp_min.toFixed(0)}º`}
 				</p>
 				<p>
-					Max: {!weatherData.main.temp_max ? '--' : weatherData.main.temp_max}
+					High:{' '}
+					{!weatherData.main.temp_max
+						? '--'
+						: `${weatherData.main.temp_max.toFixed(0)}º`}
 				</p>
 			</div>
 		</div>

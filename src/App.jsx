@@ -20,6 +20,8 @@ function App() {
 		city: null,
 	});
 
+	const [fetched, setFetched] = useState(false);
+
 	const [currentWeatherData, setCurrentWeatherData] = useState({
 		weather: {
 			0: {
@@ -77,7 +79,6 @@ function App() {
 			}
 
 			// Weather forecast call
-
 			try {
 				const response = await fetch(
 					`https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${WEATHER_KEY}`
@@ -111,10 +112,14 @@ function App() {
 			} catch (error) {
 				console.error(error);
 			}
+
+			if (!fetched) {
+				setFetched(true);
+			}
 		}
 
 		fetchData();
-	}, [coordinates]);
+	}, [coordinates, fetched]);
 
 	// Receives latitude and longitude from the search query (from handleChange)
 	function handleSearch(searchData) {
@@ -123,10 +128,6 @@ function App() {
 			lon: searchData.lon,
 			city: searchData.city,
 		});
-	}
-
-	if (weatherForecast.length !== 0) {
-		console.log(weatherForecast);
 	}
 
 	return (
@@ -141,10 +142,26 @@ function App() {
 				/>
 				<DetailsWidget weatherData={currentWeatherData} />
 				<div className="flex space-x-3.5 justify-center">
-					<NextDayCard temperature={weatherForecast[0].temp.toFixed(0)} />
-					<NextDayCard temperature={weatherForecast[1].temp.toFixed(0)} />
-					<NextDayCard temperature={weatherForecast[2].temp.toFixed(0)} />
-					<NextDayCard temperature={weatherForecast[3].temp.toFixed(0)} />
+					<NextDayCard
+						temperature={
+							!fetched ? '--' : `${weatherForecast[0].temp.toFixed(0)}º`
+						}
+					/>
+					<NextDayCard
+						temperature={
+							!fetched ? '--' : `${weatherForecast[1].temp.toFixed(0)}º`
+						}
+					/>
+					<NextDayCard
+						temperature={
+							!fetched ? '--' : `${weatherForecast[2].temp.toFixed(0)}º`
+						}
+					/>
+					<NextDayCard
+						temperature={
+							!fetched ? '--' : `${weatherForecast[3].temp.toFixed(0)}º`
+						}
+					/>
 				</div>
 			</div>
 		</div>
