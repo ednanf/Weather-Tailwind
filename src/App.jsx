@@ -15,6 +15,7 @@ function App() {
 	const [coordinates, setCoordinates] = useState({
 		lat: null,
 		lon: null,
+		city: null,
 	});
 
 	const [currentWeatherData, setCurrentWeatherData] = useState({
@@ -74,6 +75,7 @@ function App() {
 		setCoordinates({
 			lat: searchData.lat,
 			lon: searchData.lon,
+			city: searchData.city,
 		});
 	}
 
@@ -83,7 +85,10 @@ function App() {
 				<div className="w-[500]">
 					<SearchBar onSearchChange={handleSearch} />
 				</div>
-				<MainWidget weatherData={currentWeatherData} />
+				<MainWidget
+					weatherData={currentWeatherData}
+					location={coordinates.city}
+				/>
 				<DetailsWidget />
 				<div className="flex space-x-2 justify-center">
 					<NextDayCard />
