@@ -6,7 +6,8 @@ import { GEO_API_URL, geoAPIOptions } from '../support/SearchAPI';
 const Search = ({ onSearchChange }) => {
 	const [search, setSearch] = useState(null);
 
-	// Generate the content to be loaded in the search list
+	// TODO: fix repeated results coming from the API
+	// Generate the content to be loaded in the search list and to be set in an object
 	const loadOptions = (inputValue) => {
 		return fetch(`${GEO_API_URL}namePrefix=${inputValue}`, geoAPIOptions)
 			.then((response) => response.json())

@@ -8,10 +8,11 @@ import SearchBar from './components/SearchBar';
 // API KEY
 import { WEATHER_KEY } from './support/KEY';
 
-// TODO: make C or F option and pass it along to the components
+// TODO: make C or F option and pass it along to the widgets
 // TODO: make API field component and remove my own key
 
 function App() {
+	// Used to set coordinates *and* pass the city name - weather API is wrong sometimes
 	const [coordinates, setCoordinates] = useState({
 		lat: null,
 		lon: null,
@@ -70,7 +71,7 @@ function App() {
 		fetchData();
 	}, [coordinates]);
 
-	// Receives latitude and longitude from the search query
+	// Receives latitude and longitude from the search query (from handleChange)
 	function handleSearch(searchData) {
 		setCoordinates({
 			lat: searchData.lat,
@@ -89,7 +90,7 @@ function App() {
 					weatherData={currentWeatherData}
 					location={coordinates.city}
 				/>
-				<DetailsWidget />
+				<DetailsWidget weatherData={currentWeatherData} />
 				<div className="flex space-x-2 justify-center">
 					<NextDayCard />
 					<NextDayCard />
