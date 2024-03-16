@@ -1,10 +1,10 @@
-import { WiDaySunny } from 'react-icons/wi';
+import { useIcon } from '../hooks/useIcon';
 
 function MainWidget({ weatherData, location }) {
 	return (
 		<div className="w-[300px] h-auto px-10 py-5 rounded-lg bg-slate-50 shadow-md mb-5">
 			<div className="flex items-center justify-center mr-7">
-				<WiDaySunny className="text-[100px] font-black" />
+				{useIcon(weatherData.weather[0].id)}
 				<p className="text-[3rem] font-medium">
 					{!weatherData.main.temp
 						? '--'
