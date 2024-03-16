@@ -15,6 +15,7 @@ import {
 } from 'react-icons/wi';
 
 export function useIcon(id) {
+	// The switch uses true since the comparison returns true or false!
 	switch (true) {
 		case id >= 200 && id <= 232:
 			return <WiThunderstorm className="text-[100px] font-black" />;

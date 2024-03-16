@@ -1,5 +1,6 @@
 import { WiDaySunny } from 'react-icons/wi';
 
+//TODO: implement useIcon
 function NextDayCard({ temperature = '--' }) {
 	return (
 		<div className="h-auto w-auto py-3 px-4 flex rounded-lg bg-slate-50 shadow-md mb-5">
