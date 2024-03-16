@@ -8,7 +8,7 @@ function MainWidget({ weatherData, location }) {
 				<p className="text-[3rem] font-medium">
 					{!weatherData.main.temp
 						? '--'
-						: `${weatherData.main.temp.toFixed(0)}º`}
+						: `${weatherData.main.temp.toFixed(1)}º`}
 				</p>
 			</div>
 			<p className="font-roboto font-thin text-4xl text-center">
@@ -19,13 +19,13 @@ function MainWidget({ weatherData, location }) {
 					Low:{' '}
 					{!weatherData.main.temp_min
 						? '--'
-						: `${weatherData.main.temp_min.toFixed(0)}º`}
+						: `${weatherData.main.temp_min.toFixed(1)}º`}
 				</p>
 				<p>
 					High:{' '}
 					{!weatherData.main.temp_max
 						? '--'
-						: `${weatherData.main.temp_max.toFixed(0)}º`}
+						: `${weatherData.main.temp_max.toFixed(1)}º`}
 				</p>
 			</div>
 		</div>

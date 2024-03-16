@@ -14,14 +14,14 @@ function DetailsWidget({ weatherData }) {
 					Feels like:{' '}
 					{!weatherData.main.feels_like
 						? '--'
-						: `${weatherData.main.feels_like.toFixed(0)}º`}
+						: `${weatherData.main.feels_like.toFixed(1)}º`}
 				</p>
 				<p className="flex items-center justien">
 					<WiBarometer className="text-[2rem] font-black items-center justify-center " />
 					Pressure:{' '}
 					{!weatherData.main.pressure
 						? '--'
-						: `${weatherData.main.pressure.toFixed(0)} hPa`}
+						: `${weatherData.main.pressure.toFixed(1)} hPa`}
 				</p>
 				<p className="flex items-center">
 					<WiHumidity className="text-[2rem] font-black items-center justify-center " />

@@ -142,24 +142,20 @@ function App() {
 				<DetailsWidget weatherData={currentWeatherData} />
 				<div className="flex space-x-3.5 justify-center">
 					<NextDayCard
-						temperature={
-							!fetched ? '--' : `${weatherForecast[0].temp.toFixed(0)}º`
-						}
+						temperature={weatherForecast[0].temp.toFixed(1)}
+						icon={weatherForecast[0].id}
 					/>
 					<NextDayCard
-						temperature={
-							!fetched ? '--' : `${weatherForecast[1].temp.toFixed(0)}º`
-						}
+						temperature={weatherForecast[1].temp.toFixed(1)}
+						icon={weatherForecast[1].id}
 					/>
 					<NextDayCard
-						temperature={
-							!fetched ? '--' : `${weatherForecast[2].temp.toFixed(0)}º`
-						}
+						temperature={weatherForecast[2].temp.toFixed(1)}
+						icon={weatherForecast[2].id}
 					/>
 					<NextDayCard
-						temperature={
-							!fetched ? '--' : `${weatherForecast[3].temp.toFixed(0)}º`
-						}
+						temperature={weatherForecast[3].temp.toFixed(1)}
+						icon={weatherForecast[3].id}
 					/>
 				</div>
 			</div>
