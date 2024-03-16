@@ -8,7 +8,9 @@ function NextDayCard({ temperature, icon }) {
 			<div>
 				<p>Mon</p>
 				{useIcon(icon, 30)}
-				<p className="items-center justify-center text-center">{temperature}</p>
+				<p className="items-center justify-center text-center text-[15px]">
+					{temperature}
+				</p>
 			</div>
 		</div>
 	);
