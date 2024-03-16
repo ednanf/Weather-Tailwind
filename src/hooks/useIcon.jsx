@@ -14,6 +14,8 @@ import {
 	WiNa,
 } from 'react-icons/wi';
 
+// TODO: add colors to the icons
+
 export function useIcon(id, iconSizePx = 100) {
 	// The switch uses true since the comparison returns true or false!
 	switch (true) {
