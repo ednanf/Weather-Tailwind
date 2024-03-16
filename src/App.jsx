@@ -10,7 +10,6 @@ import { WEATHER_KEY } from './support/KEY';
 
 // TODO: make C or F option and pass it along to the widgets
 // TODO: make API field component and remove my own key
-// TODO: make temperature in NextDayCard be '--' before loading
 
 function App() {
 	// Used to set coordinates *and* pass the city name - weather API is wrong sometimes
