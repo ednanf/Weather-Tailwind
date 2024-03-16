@@ -92,20 +92,20 @@ function App() {
 				// The array numbers are due to how the API returns results with 3h intervals
 				setWeatherForecast([
 					{
-						temp: forecastData.list[7].main.temp,
-						id: forecastData.list[7].weather[0].id,
+						temp: forecastData.list[9].main.temp_max,
+						id: forecastData.list[9].weather[0].id,
 					},
 					{
-						temp: forecastData.list[15].main.temp,
-						id: forecastData.list[15].weather[0].id,
+						temp: forecastData.list[17].main.temp_max,
+						id: forecastData.list[17].weather[0].id,
 					},
 					{
-						temp: forecastData.list[23].main.temp,
-						id: forecastData.list[23].weather[0].id,
+						temp: forecastData.list[25].main.temp_max,
+						id: forecastData.list[25].weather[0].id,
 					},
 					{
-						temp: forecastData.list[31].main.temp,
-						id: forecastData.list[31].weather[0].id,
+						temp: forecastData.list[33].main.temp_max,
+						id: forecastData.list[33].weather[0].id,
 					},
 				]);
 			} catch (error) {
