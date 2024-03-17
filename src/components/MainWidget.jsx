@@ -4,7 +4,9 @@ function MainWidget({ weatherData, location }) {
 	return (
 		<div className="w-[300px] h-auto px-10 py-5 rounded-lg bg-slate-50 shadow-md mb-5">
 			<div className="flex items-center justify-center mr-7">
-				{useIcon(weatherData.weather[0].id, '[100px]')}
+				<span className="text-[100px]">
+					{useIcon(weatherData.weather[0].id)}
+				</span>
 				<p className="text-[3rem] font-medium">
 					{!weatherData.main.temp
 						? '--'
