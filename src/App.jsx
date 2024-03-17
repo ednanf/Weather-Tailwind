@@ -160,7 +160,7 @@ function App() {
 					location={coordinates.city}
 				/>
 				<DetailsWidget weatherData={currentWeatherData} />
-				<div className="flex space-x-1 justify-between">
+				<div className="flex space-x-1.5">
 					<NextDayCard
 						temperature={
 							!fetched ? ' -- ' : `${weatherForecast[0].temp.toFixed(1)}º`
