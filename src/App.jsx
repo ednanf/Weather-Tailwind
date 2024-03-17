@@ -163,28 +163,28 @@ function App() {
 				<div className="flex space-x-1.5">
 					<NextDayCard
 						temperature={
-							!fetched ? ' -- ' : `${weatherForecast[0].temp.toFixed(1)}º`
+							!fetched ? ' -- ' : `${weatherForecast[0].temp.toFixed(1)}ºC`
 						}
 						icon={weatherForecast[0].id}
 						weekDay={nextDaysOfWeek[0]}
 					/>
 					<NextDayCard
 						temperature={
-							!fetched ? ' -- ' : `${weatherForecast[1].temp.toFixed(1)}º`
+							!fetched ? ' -- ' : `${weatherForecast[1].temp.toFixed(1)}ºC`
 						}
 						icon={weatherForecast[1].id}
 						weekDay={nextDaysOfWeek[1]}
 					/>
 					<NextDayCard
 						temperature={
-							!fetched ? ' -- ' : `${weatherForecast[2].temp.toFixed(1)}º`
+							!fetched ? ' -- ' : `${weatherForecast[2].temp.toFixed(1)}ºC`
 						}
 						icon={weatherForecast[2].id}
 						weekDay={nextDaysOfWeek[2]}
 					/>
 					<NextDayCard
 						temperature={
-							!fetched ? ' -- ' : `${weatherForecast[3].temp.toFixed(1)}º`
+							!fetched ? ' -- ' : `${weatherForecast[3].temp.toFixed(1)}ºC`
 						}
 						icon={weatherForecast[3].id}
 						weekDay={nextDaysOfWeek[3]}

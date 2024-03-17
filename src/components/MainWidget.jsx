@@ -2,7 +2,7 @@ import { useIcon } from '../hooks/useIcon';
 
 function MainWidget({ weatherData, location }) {
 	return (
-		<div className="w-[300px] h-auto px-10 py-5 rounded-lg bg-slate-50 shadow-md mb-5">
+		<div className="w-[300px] h-auto py-5 rounded-lg bg-slate-50 shadow-md mb-5">
 			<div className="flex items-center justify-center mr-7">
 				<span className="text-[100px]">
 					{useIcon(weatherData.weather[0].id)}
@@ -10,7 +10,7 @@ function MainWidget({ weatherData, location }) {
 				<p className="text-[3rem] font-medium">
 					{!weatherData.main.temp
 						? '--'
-						: `${weatherData.main.temp.toFixed(1)}º`}
+						: `${weatherData.main.temp.toFixed(1)} ºC`}
 				</p>
 			</div>
 			<p className="font-roboto font-thin text-4xl text-center">
