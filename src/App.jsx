@@ -12,14 +12,16 @@ import { WEATHER_KEY } from './support/KEY';
 // TODO: make API field component and remove my own key
 
 function App() {
+	const [fetched, setFetched] = useState(false);
+
+	const [nextDaysOfWeek, setNextDaysofWeek] = useState([]);
+
 	// Used to set coordinates *and* pass the city name - weather API is wrong sometimes
 	const [coordinates, setCoordinates] = useState({
 		lat: null,
 		lon: null,
 		city: null,
 	});
-
-	const [fetched, setFetched] = useState(false);
 
 	const [currentWeatherData, setCurrentWeatherData] = useState({
 		weather: {
@@ -117,6 +119,7 @@ function App() {
 			}
 		}
 
+		getNextFourDays();
 		fetchData();
 	}, [coordinates, fetched]);
 
@@ -127,6 +130,23 @@ function App() {
 			lon: searchData.lon,
 			city: searchData.city,
 		});
+	}
+
+	// Sets the next 4 days of the week
+	function getNextFourDays() {
+		const today = new Date();
+		const days = [];
+
+		for (let i = 0; i < 4; i++) {
+			today.setDate(today.getDate() + 1);
+			days.push(
+				Intl.DateTimeFormat('en-US', { weekday: 'short' })
+					.format(today)
+					.slice(0, 3)
+			);
+		}
+
+		setNextDaysofWeek(days);
 	}
 
 	return (
@@ -140,30 +160,34 @@ function App() {
 					location={coordinates.city}
 				/>
 				<DetailsWidget weatherData={currentWeatherData} />
-				<div className="flex space-x-3.5 justify-center">
+				<div className="flex space-x-3 justify-center">
 					<NextDayCard
 						temperature={
 							!fetched ? ' -- ' : `${weatherForecast[0].temp.toFixed(1)}º`
 						}
 						icon={weatherForecast[0].id}
+						weekDay={nextDaysOfWeek[0]}
 					/>
 					<NextDayCard
 						temperature={
 							!fetched ? ' -- ' : `${weatherForecast[1].temp.toFixed(1)}º`
 						}
 						icon={weatherForecast[1].id}
+						weekDay={nextDaysOfWeek[1]}
 					/>
 					<NextDayCard
 						temperature={
 							!fetched ? ' -- ' : `${weatherForecast[2].temp.toFixed(1)}º`
 						}
 						icon={weatherForecast[2].id}
+						weekDay={nextDaysOfWeek[2]}
 					/>
 					<NextDayCard
 						temperature={
 							!fetched ? ' -- ' : `${weatherForecast[3].temp.toFixed(1)}º`
 						}
 						icon={weatherForecast[3].id}
+						weekDay={nextDaysOfWeek[3]}
 					/>
 				</div>
 			</div>
