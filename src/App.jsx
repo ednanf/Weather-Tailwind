@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import DetailsWidget from './components/DetailsWidget';
-import MainWidget from './components/MainWidget';
-import NextDayCard from './components/NextDayCard';
 import SearchBar from './components/SearchBar';
+import MainWidget from './components/MainWidget';
+import DetailsWidget from './components/DetailsWidget';
+import NextDayCard from './components/NextDayCard';
+import ButtonGroup from './components/ButtonGroup';
 
 // API KEY
 import { WEATHER_KEY } from './support/KEY';
@@ -160,7 +161,7 @@ function App() {
 					location={coordinates.city}
 				/>
 				<DetailsWidget weatherData={currentWeatherData} />
-				<div className="flex space-x-1.5">
+				<div className="flex space-x-1.5 mb-5">
 					<NextDayCard
 						temperature={
 							!fetched ? ' -- ' : `${weatherForecast[0].temp.toFixed(1)}ºC`
@@ -189,6 +190,9 @@ function App() {
 						icon={weatherForecast[3].id}
 						weekDay={nextDaysOfWeek[3]}
 					/>
+				</div>
+				<div className="flex justify-center">
+					<ButtonGroup />
 				</div>
 			</div>
 		</div>
