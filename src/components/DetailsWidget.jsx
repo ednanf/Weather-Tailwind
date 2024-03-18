@@ -5,16 +5,17 @@ import {
 	WiStrongWind,
 } from 'react-icons/wi';
 
-function DetailsWidget({ weatherData }) {
+import { useFormattedNumber } from '../hooks/useFormattedNumber';
+
+function DetailsWidget({ weatherData, currentTempUnit, currentUnit }) {
+	const feelsLike = useFormattedNumber(weatherData.main.feels_like);
+
 	return (
 		<div className="w-[300px] h-auto py-5 rounded-lg bg-slate-50 shadow-md mb-5">
 			<div className="flex flex-col px-4 items-start justify-center">
 				<p className="flex items-center">
 					<WiThermometer className="text-[2rem] font-black" />
-					Feels like:{' '}
-					{!weatherData.main.feels_like
-						? '--'
-						: `${weatherData.main.feels_like.toFixed(1)}º`}
+					Feels like: {!feelsLike ? '--' : `${feelsLike}º${currentTempUnit}`}
 				</p>
 				<p className="flex items-center">
 					<WiBarometer className="text-[2rem] font-black" />
@@ -33,7 +34,11 @@ function DetailsWidget({ weatherData }) {
 				<p className="flex items-center">
 					<WiStrongWind className="text-[2rem] font-black" />
 					Wind Speed:{' '}
-					{!weatherData.wind.speed ? '--' : `${weatherData.wind.speed} m/s`}
+					{!weatherData.wind.speed
+						? '--'
+						: `${weatherData.wind.speed} ${
+								currentUnit === 'metric' ? 'm/s' : 'mph'
+						  }`}
 				</p>
 			</div>
 		</div>

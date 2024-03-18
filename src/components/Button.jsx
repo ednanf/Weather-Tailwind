@@ -1,4 +1,4 @@
-function Button({ border, side, children }) {
+function Button({ border, side, onClick, children }) {
 	return (
 		<button
 			className={`${border} px-6 py-1 font-roboto 
@@ -14,6 +14,7 @@ function Button({ border, side, children }) {
       focus-within:rounded-${side}-lg 
     
       duration-200`}
+			onClick={onClick}
 		>
 			{children}
 		</button>
