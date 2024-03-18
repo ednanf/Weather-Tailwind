@@ -2,11 +2,7 @@ import Button from './Button';
 
 // TODO: setar as classes ativas como prop ao invés de deixar permanentemente, dessa forma da pra iniciar com um dos botões ativos
 
-function ButtonGroup({
-	selectedUnits,
-	changeSelectUnitsF,
-	changeSelectUnitsC,
-}) {
+function ButtonGroup({ changeSelectUnitsF, changeSelectUnitsC }) {
 	return (
 		<div className="bg-slate-50 rounded-lg shadow-md">
 			<Button

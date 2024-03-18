@@ -9,7 +9,9 @@ function NextDayCard({ temperature, currentTempUnit, icon, weekDay }) {
 			<div className="text-center">
 				<p className="text-[18px]">{weekDay}</p>
 				<span className="text-[30px] flex justify-center">{useIcon(icon)}</span>
-				<p className="text-[13px]">{`${formattedTemp}º${currentTempUnit}`}</p>
+				<p className="text-[13px]">
+					{!formattedTemp ? '--' : `${formattedTemp}º${currentTempUnit}`}
+				</p>
 			</div>
 		</div>
 	);
