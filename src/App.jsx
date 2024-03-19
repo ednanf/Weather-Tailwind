@@ -5,6 +5,7 @@ import MainWidget from './components/MainWidget';
 import DetailsWidget from './components/DetailsWidget';
 import NextDayCard from './components/NextDayCard';
 import ButtonGroup from './components/ButtonGroup';
+import Footer from './components/Footer';
 
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -170,9 +171,9 @@ function App() {
 	}
 
 	return (
-		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex items-center justify-center">
+		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex flex-col items-center justify-center">
 			<SpeedInsights />
-			<div className="flex flex-col">
+			<div className="flex flex-col mb-5">
 				<div className="w-[500]">
 					<SearchBar onSearchChange={handleSearch} />
 				</div>
@@ -220,6 +221,7 @@ function App() {
 					/>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }
