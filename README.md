@@ -1,7 +1,6 @@
 # Weather Tailwind
 
 ![GitHub License](https://img.shields.io/github/license/ednanf/Weather-Tailwind)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fednanf-tailwind.vercel.app%2F)
 ![GitHub deployments](https://img.shields.io/github/deployments/ednanf/Weather-Tailwind/Production?label=deployment%20status)
 
 ## Live Demo
