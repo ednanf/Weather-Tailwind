@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-[Access it here!](https://ednanf-weather.vercel.app/)
+[Access it here!](https://ednanf-tailwind.vercel.app/)
 
 ## About
 
