@@ -11,8 +11,15 @@
 
 Weather app built using [React](https://react.dev/) to learn [TailwindCSS](https://tailwindcss.com/).
 
+The weather forecast accuracy isn't the best, but not much can be done about that.
+
+## Info
+
+- Location API: [GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities/);
+- Weather API: [OpenWeather](https://openweathermap.org/);
+- Hosting: [Vercel](https://vercel.com/).
+
 ## Credits
 
-- Icons: [Weather Icons](https://erikflowers.github.io/weather-icons/) by Erik Flowers
-- Font: Roboto by Christian Robertson on [Google Fonts](https://fonts.google.com/specimen/Roboto)
-- Host: [Vercel](https://vercel.com/)
+- Icons: [Weather Icons](https://erikflowers.github.io/weather-icons/) by Erik Flowers;
+- Font: Roboto by Christian Robertson on [Google Fonts](https://fonts.google.com/specimen/Roboto).
