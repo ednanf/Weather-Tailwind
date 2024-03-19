@@ -172,7 +172,7 @@ function App() {
 	}
 
 	return (
-		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex flex-col items-center justify-center">
+		<div className="h-auto w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex flex-col items-center justify-center">
 			<SpeedInsights />
 			<img src={logo} alt="Logo" className="w-[150px] h-[150px] mb-[-1rem]" />
 			<div className="flex flex-col mb-5">
