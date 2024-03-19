@@ -6,6 +6,8 @@ import DetailsWidget from './components/DetailsWidget';
 import NextDayCard from './components/NextDayCard';
 import ButtonGroup from './components/ButtonGroup';
 
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 // API KEY
 const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
 
@@ -169,6 +171,7 @@ function App() {
 
 	return (
 		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex items-center justify-center">
+			<SpeedInsights />
 			<div className="flex flex-col">
 				<div className="w-[500]">
 					<SearchBar onSearchChange={handleSearch} />
