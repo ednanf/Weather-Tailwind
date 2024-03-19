@@ -7,7 +7,7 @@ import NextDayCard from './components/NextDayCard';
 import ButtonGroup from './components/ButtonGroup';
 
 // API KEY
-import { WEATHER_KEY } from './support/KEY';
+const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
 
 // TODO: make API field component and remove my own key
 
