@@ -10,7 +10,6 @@ import ButtonGroup from './components/ButtonGroup';
 import { WEATHER_KEY } from './support/KEY';
 
 // TODO: make API field component and remove my own key
-// TODO: apply useFormattedNumber to forecast cards -> they receive NaN for some reason
 
 function App() {
 	const [fetched, setFetched] = useState(false);
