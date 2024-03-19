@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import SearchBar from './components/SearchBar';
 import MainWidget from './components/MainWidget';
@@ -7,7 +8,7 @@ import NextDayCard from './components/NextDayCard';
 import ButtonGroup from './components/ButtonGroup';
 import Footer from './components/Footer';
 
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import logo from '../src/assets/appLogo.svg';
 
 // API KEY
 const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
@@ -173,6 +174,7 @@ function App() {
 	return (
 		<div className="h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex flex-col items-center justify-center">
 			<SpeedInsights />
+			<img src={logo} alt="Logo" className="w-[150px] h-[150px] mb-[-1rem]" />
 			<div className="flex flex-col mb-5">
 				<div className="w-[500]">
 					<SearchBar onSearchChange={handleSearch} />
