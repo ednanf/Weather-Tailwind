@@ -1,6 +1,6 @@
 function Footer() {
 	return (
-		<footer className="flex space-x-2 font-roboto text-sm text-slate-500">
+		<footer className="flex space-x-2 font-roboto text-sm text-slate-500 mb-4">
 			<p>Developed by Ednan</p>
 			<p>-</p>
 			<p>

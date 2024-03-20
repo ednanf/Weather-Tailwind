@@ -13,8 +13,6 @@ import logo from '../src/assets/appLogo.svg';
 // API KEY
 const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
 
-// TODO: make API field component and remove my own key
-
 function App() {
 	const [fetched, setFetched] = useState(false);
 
@@ -88,7 +86,7 @@ function App() {
 			// Weather forecast call
 			try {
 				const response = await fetch(
-					`https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${WEATHER_KEY}`
+					`https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${units}&appid=${WEATHER_KEY}`
 				);
 
 				if (!response.ok) {
@@ -172,7 +170,7 @@ function App() {
 	}
 
 	return (
-		<div className="h-auto w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex flex-col items-center justify-center">
+		<div className="min-h-screen w-screen bg-gradient-to-b from-sky-400 to-sky-50 flex flex-col items-center justify-center">
 			<SpeedInsights />
 			<img src={logo} alt="Logo" className="w-[150px] h-[150px] mb-[-1rem]" />
 			<div className="flex flex-col mb-5">
